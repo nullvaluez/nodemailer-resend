@@ -1,0 +1,34 @@
+{
+  "name": "email-router",
+  "version": "1.0.0",
+  "description": "A secure email routing system with Cloudflare Turnstile protection",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "test:server": "node test/server.js",
+    "verify": "node test/verify.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "email",
+    "form",
+    "turnstile",
+    "cloudflare",
+    "resend",
+    "express",
+    "security"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "formdata-node": "^6.0.3",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.10.0",
+    "resend": "^4.1.2"
+  }
+}
