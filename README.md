@@ -1,4 +1,4 @@
-# Email Router with Cloudflare Turnstile
+# Email Router with Cloudflare Turnstile, Nodemailer, and Resend API
 
 A secure, production-ready email routing system for handling form submissions with Cloudflare Turnstile protection. Built with Node.js, Express, and Resend.
 
