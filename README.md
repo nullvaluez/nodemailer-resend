@@ -1,4 +1,4 @@
-# Email Router with Cloudflare Turnstile, Nodemailer, and Resend API
+# Email Router with Cloudflare Turnstile
 
 A secure, production-ready email routing system for handling form submissions with Cloudflare Turnstile protection. Built with Node.js, Express, and Resend.
 
@@ -59,14 +59,54 @@ A secure, production-ready email routing system for handling form submissions wi
    }
    ```
 
-5. Start the server:
+5. **IMPORTANT**: Verify your setup first:
    ```bash
-   # Development mode
-   npm run dev
-
-   # Production mode
-   npm start
+   npm run verify
    ```
+   This script will check:
+   - Environment variables
+   - Domain configurations
+   - Resend API connection
+   - Turnstile configuration
+   
+   Fix any issues before proceeding.
+
+## Testing
+
+### 1. Initial Verification (Required)
+Always start with verifying your setup:
+```bash
+npm run verify
+```
+This ensures all configurations are correct before running the servers.
+
+### 2. Start the Servers
+Once verification passes, start both servers:
+
+a. Start the main server:
+```bash
+npm run dev
+```
+
+b. In a new terminal, start the test server:
+```bash
+npm run test:server
+```
+
+### 3. Test the Form
+1. Open `http://localhost:3000` in your browser
+2. You should see a test form with:
+   - Name field
+   - Email field
+   - Message field
+   - Turnstile widget
+3. Fill out the form and submit
+4. Check your configured email for the test message
+
+### 4. Monitoring
+- Watch the server console for request logs
+- Check the browser console for client-side logs
+- Monitor the debug panel below the form for detailed information
 
 ## Development vs Production
 
@@ -83,30 +123,6 @@ A secure, production-ready email routing system for handling form submissions wi
 - Strict CORS policy (configured domains only)
 - Limited error information in responses
 - Rate limiting enforced
-
-## Testing
-
-1. Start the test server:
-   ```bash
-   npm run test:server
-   ```
-   This runs a server on port 3000 with a test form.
-
-2. Start the main server:
-   ```bash
-   npm run dev
-   ```
-
-3. Open `http://localhost:3000` in your browser
-   - Fill out the test form
-   - Verify Turnstile works
-   - Submit and check email delivery
-
-4. Run verification script:
-   ```bash
-   npm run verify
-   ```
-   This checks your configuration and connection to Resend.
 
 ## API Endpoints
 
@@ -133,19 +149,29 @@ Returns the Turnstile site key for the specified domain.
 
 ### Common Issues
 
-1. **CORS Errors**
+1. **Verification Script Failures**
+   - Check your Resend API key
+   - Verify environment variables
+   - Ensure domain configurations are complete
+   - Check email address formats
+
+2. **CORS Errors**
    - Check allowed origins in configuration
    - Verify protocol (http/https) matches
+   - Ensure test server is running on port 3000
+   - Ensure main server is running on port 3001
 
-2. **Email Not Sending**
+3. **Email Not Sending**
    - Verify Resend API key
    - Check domain verification status
    - Confirm sender email is verified
+   - Check server logs for detailed errors
 
-3. **Turnstile Not Working**
+4. **Turnstile Not Working**
    - Verify site and secret keys
    - Check browser console for errors
    - Ensure domain is configured
+   - Test with development keys first
 
 ## Contributing
 
