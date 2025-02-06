@@ -1,0 +1,25 @@
+name = "email-router-demo"
+main = "index.js"
+compatibility_date = "2025-02-06"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[build]
+command = "npm install"
+watch_dir = "src"
+
+[vars]
+NODE_ENV = "development"
+PORT = "3001"
+
+# Example of how to set up environment variables
+
+# [vars.development]
+# RESEND_API_KEY = "your_test_key_here"
+
+# [vars.production]
+# RESEND_API_KEY = "your_production_key_here"
+
+[[rules]]
+type = "ESModule"
+globs = ["**/*.js"] 

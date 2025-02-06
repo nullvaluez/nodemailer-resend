@@ -15,12 +15,14 @@ A secure, production-ready email routing system for handling form submissions wi
 - 🧪 **Test Environment** - Complete test setup for local development
 - 🚦 **Health Checks** - Monitor system status and performance
 - ⚡ **Performance Optimized** - Efficient request handling with proper error management
+- ☁️ **Cloudflare Ready** - Easy deployment to Cloudflare Pages
 
 ## Prerequisites
 
 - Node.js 18+ (LTS recommended)
 - A Resend account (get one at [resend.com](https://resend.com))
-- A Cloudflare account for Turnstile (set up at [cloudflare.com](https://cloudflare.com))
+- A Cloudflare account for Turnstile and Pages (set up at [cloudflare.com](https://cloudflare.com))
+- Wrangler CLI (install with `npm install -g wrangler`)
 
 ## Quick Start
 
@@ -189,4 +191,88 @@ MIT License - feel free to use this in your own projects!
 
 - Create an issue for bugs or feature requests
 - Star the repository if you find it useful
-- Contributions welcome! 
+- Contributions welcome!
+
+## Cloudflare Pages Deployment
+
+### 1. Install Wrangler
+```bash
+npm install -g wrangler
+```
+
+### 2. Login to Cloudflare
+```bash
+wrangler login
+```
+
+### 3. Configure Environment Variables
+1. Go to Cloudflare Pages dashboard
+2. Select your project
+3. Go to Settings > Environment Variables
+4. Add the following variables:
+   - `RESEND_API_KEY`: Your Resend API key
+   - `NODE_ENV`: Set to 'development' or 'production'
+   - `RATE_LIMIT_WINDOW_MS`: Rate limit window (default: 900000)
+   - `RATE_LIMIT_MAX_REQUESTS`: Max requests per window (default: 100)
+
+### 4. Deploy
+```bash
+# Development deployment
+wrangler deploy --env development
+
+# Production deployment
+wrangler deploy --env production
+```
+
+### 5. Configure Domain
+1. Go to your Cloudflare Pages project
+2. Click on "Custom Domains"
+3. Add your domain
+4. Update your domain's DNS settings
+
+### 6. Test the Deployment
+1. Visit your deployed site (e.g., https://email-router-demo.pages.dev)
+2. Use the test form at /test
+3. Monitor the Function Logs in Cloudflare Dashboard
+
+### Environment Variables in Cloudflare
+
+You can set environment variables in three ways:
+1. **Wrangler.toml** (for development)
+2. **Cloudflare Dashboard** (for production)
+3. **Command Line**:
+   ```bash
+   wrangler secret put RESEND_API_KEY
+   ```
+
+### Development vs Production on Cloudflare
+
+#### Development
+- Uses `.dev` subdomain
+- Detailed error messages
+- Test mode enabled
+- Cloudflare Turnstile test keys
+
+#### Production
+- Uses custom domain
+- Limited error information
+- Rate limiting enabled
+- Production Turnstile keys
+
+### Cloudflare-Specific Issues
+
+1. **Deployment Failures**
+   - Check wrangler.toml configuration
+   - Verify environment variables are set
+   - Check function size limits
+   - Review build logs
+
+2. **Environment Variables**
+   - Verify variables in Cloudflare Dashboard
+   - Check environment selection (dev/prod)
+   - Use wrangler secret list to verify
+
+3. **Domain Configuration**
+   - Verify DNS settings
+   - Check SSL/TLS configuration
+   - Ensure domain is active in Cloudflare 

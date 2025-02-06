@@ -2,13 +2,20 @@
   "name": "email-router",
   "version": "1.0.0",
   "description": "A secure email routing system with Cloudflare Turnstile protection",
-  "main": "index.js",
+  "main": "worker.js",
+  "type": "module",
   "scripts": {
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "test:server": "node test/server.js",
     "verify": "node test/verify.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deploy:dev": "wrangler deploy --env development",
+    "deploy:prod": "wrangler deploy --env production",
+    "tail:dev": "wrangler tail --env development",
+    "tail:prod": "wrangler tail --env production",
+    "pages:dev": "wrangler pages dev --compatibility-date=2024-02-06 --compatibility-flags=nodejs_compat",
+    "pages:deploy": "wrangler pages publish ."
   },
   "keywords": [
     "email",
@@ -30,5 +37,8 @@
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.10.0",
     "resend": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
