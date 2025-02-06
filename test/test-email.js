@@ -1,5 +1,6 @@
-const { getTransporter, verifyTransporter } = require('../utils/transport');
-const { domainEmailMap } = require('../config/domainMap');
+import { getTransporter, verifyTransporter } from '../utils/transport';
+import { domainEmailMap } from '../config/domainMap';
+
 
 async function testEmailConnection() {
     try {

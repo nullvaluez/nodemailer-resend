@@ -1,4 +1,4 @@
-const { Resend } = require('resend');
+import { Resend } from 'resend';
 
 if (!process.env.RESEND_API_KEY) {
     throw new Error('RESEND_API_KEY environment variable is not set');
@@ -92,7 +92,7 @@ const verifyTransporter = async () => {
     }
 };
 
-module.exports = {
+export {
     transporter,
     verifyTransporter
 };

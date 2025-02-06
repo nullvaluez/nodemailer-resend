@@ -1,7 +1,6 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-const { verifyTransporter } = require('../utils/transport');
-const { domainEmailMap } = require('../config/domainMap');
+import path from 'path';
+import { verifyTransporter } from '../utils/transport';
+import { domainEmailMap } from '../config/domainMap';
 
 async function verifySetup() {
     console.log('\nVerifying Email Router Setup...\n');

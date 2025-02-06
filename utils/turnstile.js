@@ -1,7 +1,7 @@
-const { Resend } = require('resend');
-const fetch = require('node-fetch');
-const { FormData } = require('formdata-node');
-const crypto = require('crypto');
+import { Resend } from 'resend';
+import fetch from 'node-fetch';
+import { FormData } from 'formdata-node';
+import crypto from 'crypto';
 
 const verifyTurnstileToken = async (token, secretKey, remoteip) => {
     try {
@@ -45,6 +45,4 @@ const verifyTurnstileToken = async (token, secretKey, remoteip) => {
     }
 };
 
-module.exports = {
-    verifyTurnstileToken
-}; 
+export { verifyTurnstileToken }; 

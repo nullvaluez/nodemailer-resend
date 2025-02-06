@@ -1,3 +1,4 @@
+import { URL } from 'node:url';
 const validateDomainConfig = (domain, config) => {
     const required = ['to', 'fromAddress', 'fromName', 'turnstile'];
     const missing = required.filter(field => !config[field]);
@@ -89,7 +90,7 @@ const smtpConfig = {
     },
 };
 
-module.exports = {
+export {
     domainEmailMap,
     getDomainConfig,
     smtpConfig
