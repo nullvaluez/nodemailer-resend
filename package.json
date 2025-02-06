@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A secure email routing system with Cloudflare Turnstile protection",
   "main": "worker.js",
-  "type": "module",
   "scripts": {
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
