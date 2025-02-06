@@ -12,7 +12,7 @@ A secure, production-ready email routing system for handling form submissions wi
   - Rate limiting
   - XSS prevention
   - Input validation
-- 🧪 **Test Environment** - Complete test setup for local development
+- 🧪 **Test Environment** - Complete test setup for local development 
 - 🚦 **Health Checks** - Monitor system status and performance
 - ⚡ **Performance Optimized** - Efficient request handling with proper error management
 
