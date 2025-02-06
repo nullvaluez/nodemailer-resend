@@ -1,4 +1,4 @@
-name = "email-router-demo"
+name = "nodemailer-resend"
 main = "index.js"
 compatibility_date = "2025-02-06"
 compatibility_flags = ["nodejs_compat"]
@@ -9,7 +9,7 @@ command = "npm install"
 watch_dir = "src"
 
 [vars]
-NODE_ENV = "development"
+NODE_ENV = "production"
 PORT = "3001"
 
 # Example of how to set up environment variables
