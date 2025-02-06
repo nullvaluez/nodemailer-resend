@@ -9,7 +9,7 @@ command = "esbuild ./worker.js --bundle --format=esm --platform=node --outfile=d
 watch_dir = "."
 
 [vars]
-NODE_ENV = "development"
+NODE_ENV = "production"
 PORT = "3001"
 
 [[rules]]
