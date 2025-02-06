@@ -3,6 +3,7 @@ main = "./dist/worker.js"
 compatibility_date = "2024-02-06"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true
+node_compat = true
 
 [build]
 command = "npm run build"
@@ -22,7 +23,4 @@ PORT = "3001"
 
 [[rules]]
 type = "ESModule"
-globs = ["**/*.js"]
-
-[node_compat]
-enabled = true 
+globs = ["**/*.js"] 
