@@ -10,7 +10,7 @@
     "test:server": "node test/server.js",
     "verify": "node test/verify.js",
     "lint": "eslint .",
-    "build": "esbuild ./worker.js --bundle --format=esm --outfile=dist/worker.js",
+    "build": "esbuild ./worker.js --bundle --format=esm --platform=node --outfile=dist/worker.js --external:express --external:cors --external:dotenv --external:express-rate-limit --external:formdata-node --external:node-fetch --external:nodemailer --external:resend",
     "worker:dev": "wrangler dev",
     "logs:dev": "wrangler tail --env development",
     "logs:prod": "wrangler tail --env production",

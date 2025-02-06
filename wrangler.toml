@@ -22,4 +22,7 @@ PORT = "3001"
 
 [[rules]]
 type = "ESModule"
-globs = ["**/*.js"] 
+globs = ["**/*.js"]
+
+[node_compat]
+enabled = true 
